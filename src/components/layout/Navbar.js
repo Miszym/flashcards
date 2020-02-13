@@ -14,10 +14,10 @@ const Navbar = props => {
    const classes = useStyles(props);
 
    return (
-      <AppBar position="static" className={classes.root}>
-         <Toolbar container>
+      <AppBar position="static" className={classes.root} data-testid="navbar">
+         <Toolbar>
             <IconButton edge="start" color="inherit" aria-label="menu">
-               <MenuIcon color="inherit" />
+               <MenuIcon color="inherit" data-testid="menuIcon" />
             </IconButton>
             <Typography variant="h6">Flashcards</Typography>
          </Toolbar>
