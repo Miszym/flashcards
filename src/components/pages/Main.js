@@ -31,13 +31,8 @@ const Main = () => {
                </Link>
             </Grid>
             <Grid item>
-               <Link to="/AddCard">
-                  <Button>Add cards</Button>
-               </Link>
-            </Grid>
-            <Grid item>
-               <Link to="/RemoveCards">
-                  <Button>Remove cards</Button>
+               <Link to="/editCards">
+                  <Button>Edit cards</Button>
                </Link>
             </Grid>
          </Grid>

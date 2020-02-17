@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './layout/Navbar';
 import Main from './pages/Main';
-import AddCard from './pages/AddCard';
+import EditCards from './pages/EditCards';
 import PracticeContainer from './partial/PracticeContainer';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
@@ -44,8 +44,8 @@ function App() {
                   <Route path="/practice">
                      <PracticeContainer />
                   </Route>
-                  <Route exact path="/addCard">
-                     <AddCard />
+                  <Route exact path="/editCards">
+                     <EditCards />
                   </Route>
                </MuiThemeProvider>
             </CssBaseline>

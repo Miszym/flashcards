@@ -71,17 +71,17 @@ const PracticeSetup = ({
                   value="HARD"
                   checked={filter === 'HARD'}
                ></FormControlLabel>
-               <FormControlLabel
+               {/* <FormControlLabel
                   control={<Radio color="primary" />}
                   label="Most recently added"
                   value="NEW"
                   checked={filter === 'NEW'}
-               ></FormControlLabel>
+               ></FormControlLabel> */}
             </RadioGroup>
          </Grid>
          <Grid item className={classes.section}>
             <Button
-               disabled={cardAmount == ''}
+               disabled={cardAmount === ''}
                variant="contained"
                color="primary"
             >

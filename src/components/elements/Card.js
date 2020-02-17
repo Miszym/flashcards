@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card as MuiCard, CardContent, Grid, Box } from '@material-ui/core';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
@@ -45,6 +45,14 @@ const Card = ({ children, frontText, backText }) => {
       document.querySelector('#cardBack').classList.toggle(classes.flipBack);
    };
 
+   //for preventing peeking next definition
+   const [delayedBackText, setDelayedBackText] = useState('');
+   useEffect(() => {
+      setTimeout(() => {
+         setDelayedBackText(backText);
+      }, 200);
+   });
+
    return (
       <Grid container justify="center" className={classes.container}>
          <Box className={classes.root} onClick={flipCard}>
@@ -55,7 +63,7 @@ const Card = ({ children, frontText, backText }) => {
                id="cardBack"
                className={`${classes.card} ${classes.back}`}
             >
-               <CardContent>{backText}</CardContent>
+               <CardContent>{delayedBackText}</CardContent>
             </MuiCard>
          </Box>
       </Grid>

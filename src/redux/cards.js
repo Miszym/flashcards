@@ -1,8 +1,10 @@
 import flashcards from '../data/flashcards';
 
-export function addCard() {
+export function addCard(date, text) {
    return {
-      type: 'ADD_CARD'
+      type: 'ADD_CARD',
+      date: date,
+      text: text
    };
 }
 
@@ -23,7 +25,14 @@ export function incrementStats(description, success) {
 export default function cards(cards = flashcards, action) {
    switch (action.type) {
       case 'ADD_CARD':
-         return cards;
+         const newCard = {
+            description: action.text.frontText,
+            definition: action.text.backText,
+            failed: 0,
+            passed: 0,
+            creationDate: action.date
+         };
+         return [...cards, newCard];
       case 'INCREMENT_STATS':
          const card = cards.find(card => card.description === action.payload);
          if (!card) {

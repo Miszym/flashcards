@@ -15,7 +15,7 @@ const StatsView = ({ stats: { cardAmount, tries, fails } }) => {
    const classes = useStyles();
    return (
       <Grid container justify="center" className={classes.root}>
-         <Grid item direction="column">
+         <Grid item>
             <Typography variant="h4">Practice stats</Typography>
             <Typography variant="h6">cards: {cardAmount}</Typography>
             <Typography variant="h6">tries: {tries}</Typography>
@@ -24,7 +24,7 @@ const StatsView = ({ stats: { cardAmount, tries, fails } }) => {
                efficiency:{' '}
                {tries === 0
                   ? '0%'
-                  : `${Math.floor((cardAmount / tries) * 100)}%`}
+                  : `${Math.floor(((tries - fails) / tries) * 100)}%`}
             </Typography>
             <Link to="/">
                <Button

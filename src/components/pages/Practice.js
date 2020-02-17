@@ -12,15 +12,10 @@ const Practice = ({ cardAmount, filter }) => {
    const [tries, setTries] = useState(0);
    const [current, setCurrent] = useState({});
    const [practiceOver, setPracticeOver] = useState(false);
+   const [lastPickedCard, setLastPickedCard] = useState(null);
 
    useEffect(() => {
-      switch (filter) {
-         case 'RANDOM':
-            createRandomSet();
-            break;
-         default:
-            createRandomSet();
-      }
+      createSet(filter);
    }, []);
 
    useEffect(() => {
@@ -32,17 +27,58 @@ const Practice = ({ cardAmount, filter }) => {
 
    const pickRandomCard = () => {
       const length = practiceCardList.length;
-      const rand = Math.floor(Math.random() * length);
+      let rand = -1;
+      if (practiceCardList.length > 1) {
+         do {
+            rand = Math.floor(Math.random() * length);
+         } while (rand === lastPickedCard);
+      } else rand = 0;
       setCurrent(practiceCardList[rand]);
+      setLastPickedCard(rand);
    };
 
-   const createRandomSet = () => {
+   const createSet = filter => {
       const randomCards = [...allCardList];
       while (randomCards.length > cardAmount) {
-         const randomIndex = Math.floor(Math.random() * randomCards.length);
-         randomCards.splice(randomIndex, 1);
+         const index = getIndexToSplice(filter, randomCards);
+         randomCards.splice(index, 1);
       }
       setPracticeCardList(randomCards);
+   };
+
+   const getIndexToSplice = (method, randomCards) => {
+      switch (filter) {
+         case 'RANDOM':
+            return Math.floor(Math.random() * randomCards.length);
+         case 'EASY':
+            let hardest = Infinity;
+            let hardestIndex = 0;
+            randomCards.forEach((card, index) => {
+               console.log(index);
+               const factor =
+                  card.failed === 0 ? Infinity : card.passed / card.failed;
+               if (factor < hardest) {
+                  hardestIndex = index;
+                  hardest = factor;
+               }
+            });
+            return hardestIndex;
+         case 'HARD':
+            let easiest = 0;
+            let easiestIndex = 0;
+            randomCards.forEach((card, index) => {
+               console.log(index);
+               const factor =
+                  card.failed === 0 ? Infinity : card.passed / card.failed;
+               if (factor > easiest) {
+                  easiestIndex = index;
+                  easiest = factor;
+               }
+            });
+            return easiestIndex;
+         default:
+            return 0;
+      }
    };
 
    const handleCheck = (success, card) => {
@@ -55,7 +91,6 @@ const Practice = ({ cardAmount, filter }) => {
          setFails(prev => prev + 1);
       }
       setTries(prev => prev + 1);
-      console.log(tries + ' ' + fails);
    };
 
    return practiceOver ? (
