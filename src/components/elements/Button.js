@@ -1,13 +1,10 @@
 import React from 'react';
-import { useTheme, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { Button as MuiButton } from '@material-ui/core';
 
 const Button = props => {
-   const theme = useTheme();
    const useStyles = makeStyles({
       root: {
-         backgroundColor: theme.colorLake,
-         color: theme.colorIceLight,
          width: '100%',
          height: '80px',
          fontSize: '20px'
@@ -16,7 +13,7 @@ const Button = props => {
    const classes = useStyles();
 
    return (
-      <MuiButton variant="contained" className={classes.root}>
+      <MuiButton variant="contained" color="primary" className={classes.root}>
          {props.children}
       </MuiButton>
    );

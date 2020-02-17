@@ -1,14 +1,12 @@
 import React from 'react';
-import { useTheme, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import Button from '../elements/Button';
 import { Link } from 'react-router-dom';
 
 const Main = () => {
-   const theme = useTheme();
    const useStyles = makeStyles({
       root: {
-         backgroundColor: theme.colorSand,
          marginTop: '50px'
       }
    });
@@ -28,7 +26,7 @@ const Main = () => {
             lg={4}
          >
             <Grid item>
-               <Link to="/practice">
+               <Link to="/practice/Setup">
                   <Button>Practice</Button>
                </Link>
             </Grid>

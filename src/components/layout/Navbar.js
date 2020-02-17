@@ -2,12 +2,17 @@ import React from 'react';
 import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useTheme, makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
 const Navbar = props => {
    const theme = useTheme();
    const useStyles = makeStyles({
       root: {
          backgroundColor: theme.colorLake,
+         color: theme.colorIceLight
+      },
+      link: {
+         textDecoration: 'none',
          color: theme.colorIceLight
       }
    });
@@ -19,7 +24,9 @@ const Navbar = props => {
             <IconButton edge="start" color="inherit" aria-label="menu">
                <MenuIcon color="inherit" data-testid="menuIcon" />
             </IconButton>
-            <Typography variant="h6">Flashcards</Typography>
+            <Link to="/" className={classes.link}>
+               <Typography variant="h6">Flashcards</Typography>
+            </Link>
          </Toolbar>
       </AppBar>
    );
