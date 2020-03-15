@@ -3,56 +3,56 @@
       "creationDate": "2019-03-25",
       "description": "installment",
       "definition": "rata",
-      "passed": 3,
-      "failed": 1
+      "passed": 0,
+      "failed": 0
    },
    {
       "creationDate": "2019-04-25",
       "description": "shun",
       "definition": "unikać omijać",
-      "passed": 2,
-      "failed": 2
+      "passed": 0,
+      "failed": 0
    },
    {
       "creationDate": "2019-05-24",
       "description": "tributary",
       "definition": "dopływ",
-      "passed": 3,
+      "passed": 0,
       "failed": 0
    },
    {
       "creationDate": "2019-09-02",
       "description": "mottled",
       "definition": "cętkowany",
-      "passed": 2,
-      "failed": 3
+      "passed": 0,
+      "failed": 0
    },
    {
       "creationDate": "2020-01-20",
       "description": "surreptitious",
       "definition": "ukradkowy",
-      "passed": 4,
-      "failed": 1
+      "passed": 0,
+      "failed": 0
    },
    {
       "creationDate": "2019-03-25",
       "description": "delve",
       "definition": "sięgać (wgłąb)",
-      "passed": 10,
-      "failed": 1
+      "passed": 0,
+      "failed": 0
    },
    {
       "creationDate": "2019-03-25",
       "description": "enticing",
       "definition": "kuszący uwodzicielski",
-      "passed": 3,
-      "failed": 1
+      "passed": 0,
+      "failed": 0
    },
    {
       "creationDate": "2019-03-30",
       "description": "pungent",
       "definition": "ostry cierpki",
-      "passed": 3,
-      "failed": 1
+      "passed": 0,
+      "failed": 0
    }
 ]

@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import PracticeSetup from '../pages/PracticeSetup';
 import Practice from '../pages/Practice';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { saveData } from '../../redux/cards';
 
 const PracticeContainer = () => {
    const MAX_AMOUNT = useSelector(state => state.length);
    const MIN_AMOUNT = 1;
    const [cardAmount, setCardAmount] = useState(MAX_AMOUNT);
    const [filter, setFilter] = useState('RANDOM');
+   const dispatch = useDispatch();
 
    const setAmount = ({ target }) => {
       const amount = target.value;
@@ -19,6 +21,13 @@ const PracticeContainer = () => {
          setCardAmount(amount);
       }
    };
+
+   useEffect(() => {
+      return () => {
+         dispatch(saveData());
+      };
+   });
+
    return (
       <>
          <Route exact path="/practice/start">

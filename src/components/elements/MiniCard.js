@@ -13,6 +13,7 @@ const MiniCard = ({ frontText, backText }) => {
       root: {
          width: '8rem',
          height: '15rem',
+         marginTop: '1rem',
          backgroundColor: theme.palette.primary.main,
          color: theme.colorIceLight,
          textAlign: 'center'
