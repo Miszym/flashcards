@@ -2,7 +2,7 @@
    "name": "flashcards",
    "version": "0.1.0",
    "private": true,
-   "homepage": "https://Miszym/github.io/flashcards",
+   "homepage": "https://miszym.github.io/flashcards",
    "dependencies": {
       "@material-ui/core": "^4.9.2",
       "@material-ui/icons": "^4.9.1",
