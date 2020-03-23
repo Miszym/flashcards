@@ -1,6 +1,7 @@
 import React from 'react';
 import {
    TextField,
+   Checkbox,
    Grid,
    RadioGroup,
    Radio,
@@ -17,7 +18,9 @@ const PracticeSetup = ({
       MIN_AMOUNT,
       MAX_AMOUNT,
       filter,
-      setFilter
+      setFilter,
+      reverted,
+      setReverted
    }
 }) => {
    const theme = useTheme();
@@ -78,6 +81,19 @@ const PracticeSetup = ({
                   checked={filter === 'NEW'}
                ></FormControlLabel> */}
             </RadioGroup>
+         </Grid>
+         <Grid item className={classes.section}>
+            <FormControlLabel
+               control={
+                  <Checkbox
+                     label={`revert`}
+                     checked={reverted}
+                     onChange={e => setReverted(e.target.checked)}
+                     color="primary"
+                  />
+               }
+               label="Revert"
+            />
          </Grid>
          <Grid item className={classes.section}>
             <Button

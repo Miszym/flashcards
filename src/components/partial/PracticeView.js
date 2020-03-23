@@ -10,7 +10,8 @@ const PracticeView = ({
    currentPassed,
    currentCard,
    handleCheck,
-   finishRun
+   finishRun,
+   reverted
 }) => {
    const theme = useTheme();
    const useStyles = makeStyles({
@@ -45,8 +46,12 @@ const PracticeView = ({
                   Passed: {currentPassed}/{cardAmount}
                </Typography>
                <Card
-                  frontText={currentCard.description}
-                  backText={currentCard.definition}
+                  frontText={
+                     reverted ? currentCard.definition : currentCard.description
+                  }
+                  backText={
+                     reverted ? currentCard.description : currentCard.definition
+                  }
                ></Card>
             </Grid>
             <Grid>

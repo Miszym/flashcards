@@ -10,6 +10,7 @@ const PracticeContainer = () => {
    const MIN_AMOUNT = 1;
    const [cardAmount, setCardAmount] = useState(MAX_AMOUNT);
    const [filter, setFilter] = useState('RANDOM');
+   const [reverted, setReverted] = useState(false);
    const dispatch = useDispatch();
 
    const setAmount = ({ target }) => {
@@ -34,6 +35,7 @@ const PracticeContainer = () => {
             <Practice
                cardAmount={cardAmount === '' ? 1 : cardAmount}
                filter={filter}
+               reverted={reverted}
             />
          </Route>
          <Route exact path="/practice/Setup">
@@ -44,7 +46,9 @@ const PracticeContainer = () => {
                   MIN_AMOUNT,
                   MAX_AMOUNT,
                   filter,
-                  setFilter
+                  setFilter,
+                  reverted,
+                  setReverted
                }}
             />
          </Route>

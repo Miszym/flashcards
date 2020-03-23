@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import PracticeView from '../partial/PracticeView';
 import StatsView from '../partial/StatsView';
 
-const Practice = ({ cardAmount, filter }) => {
+const Practice = ({ cardAmount, filter, reverted }) => {
    const allCardList = useSelector(state => state);
    const dispatch = useDispatch();
    const [practiceCardList, setPracticeCardList] = useState([]);
@@ -102,6 +102,7 @@ const Practice = ({ cardAmount, filter }) => {
          currentCard={current ? current : { description: '', definition: '' }}
          handleCheck={handleCheck}
          finishRun={setPracticeOver}
+         reverted={reverted}
       />
    );
 };
